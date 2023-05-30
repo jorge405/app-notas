@@ -1,7 +1,7 @@
 import {pool} from '../db.js'
 
 export const VerNotas= async(req,res)=>{
-    const [rows]= await pool.query ('SELECT * FROM railway')
+    const [rows]= await pool.query ('SELECT * FROM notas')
     console.log(rows);
 }
 
