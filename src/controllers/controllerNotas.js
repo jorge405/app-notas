@@ -1,7 +1,7 @@
-
+import {pool} from '../db.js'
 
 export const VerNotas=(req,res)=>{
-    res.send('hola mundo')
+    res.send('viendo notas')
 }
 
 
