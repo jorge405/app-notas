@@ -1,8 +1,35 @@
 import {pool} from '../db.js'
 
 export const VerNotas= async(req,res)=>{
-    const [rows]= await pool.query ('SELECT * FROM notas')
-    console.log(rows);
+    try {
+        const [rows]= await pool.query ('SELECT * FROM notas')
+        res.json({
+            rows
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message:"notas not found"
+        })
+    }
+    
+}
+
+export const VerOneNota=async(req,res)=>{
+    const id=req.params.id
+    try {
+        const [rows]=await pool.query('SELECT * FROM notas WHERE= ?',[id])
+        if (rows.length<=0) return res.status(404).json({
+            message:'nota no encontrada'
+        })
+        res.json(
+            rows
+        )
+        
+    } catch (error) {
+        return res.status(500).json({
+            message:"algo salio mal"
+        })
+    }
 }
 
 
