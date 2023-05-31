@@ -3,9 +3,9 @@ import {pool} from '../db.js'
 export const VerNotas= async(req,res)=>{
     try {
         const [rows]= await pool.query ('SELECT * FROM notas')
-        res.json({
+        res.json(
             rows
-        })
+        )
     } catch (error) {
         return res.status(500).json({
             message:"notas not found"
