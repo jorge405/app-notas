@@ -5,8 +5,8 @@ const routerNotas=Router()
 routerNotas.get('/VerNotas',VerNotas)
 routerNotas.get('/VerOneNota/:id',VerOneNota)
 routerNotas.post('/postNotas',postNotas)
-routerNotas.patch('/patchNotas',patchNotas)
-routerNotas.delete('/deleteNotas',deleteNotas)
+routerNotas.patch('/patchNotas/:id',patchNotas)
+routerNotas.delete('/deleteNotas/:id',deleteNotas)
 
 
 
