@@ -47,7 +47,7 @@ export const patchNotas=async(req,res)=>{
     const id=req.params.id
     const {titulo,descripcion,fecha_creacion,estado}=req.body
     try {
-        const [rows]=await pool.query('UPDATE notas SET titulo= IFNULL(?,titulo), descripcion= IFNULL(?,descripcion), fecha_creacion= IFNULL(?,fecha_creacion), estado= IFNULL(?,estado) WHERE id_notas=?',[titulo,descripcion,fecha_creacion,estado,id])
+        const [rows]=await pool.query('UPDATE notas SET titulo = IFNULL(?,titulo), descripcion = IFNULL(?,descripcion), fecha_creacion = IFNULL(?,fecha_creacion), estado = IFNULL(?,estado) WHERE id_notas= ?',[titulo,descripcion,fecha_creacion,estado,id])
         if (rows.affectedRows===0) return res.status(404).json({
         message:"nota no modificada hubo un problema"
     })
