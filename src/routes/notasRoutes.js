@@ -1,8 +1,9 @@
 import {Router} from 'express'
-import {VerNotas,postNotas,patchNotas,deleteNotas} from '../controllers/controllerNotas.js'
+import {VerNotas,VerOneNota,postNotas,patchNotas,deleteNotas} from '../controllers/controllerNotas.js'
 const routerNotas=Router()
 
 routerNotas.get('/VerNotas',VerNotas)
+routerNotas.get('/VerOneNota/:id',VerNotas)
 routerNotas.post('/postNotas',postNotas)
 routerNotas.patch('/patchNotas',patchNotas)
 routerNotas.delete('/deleteNotas',deleteNotas)
