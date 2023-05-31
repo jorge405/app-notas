@@ -17,7 +17,7 @@ export const VerNotas= async(req,res)=>{
 export const VerOneNota=async(req,res)=>{
     const id=req.params.id
     try {
-        const [rows]=await pool.query('SELECT * FROM notas WHERE= ?',[id])
+        const [rows]=await pool.query('SELECT * FROM notas WHERE id_notas= ?',[id])
         if (rows.length<=0) return res.status(404).json({
             message:'nota no encontrada'
         })
