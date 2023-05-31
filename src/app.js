@@ -5,13 +5,8 @@ const app=express()
 
 //use
 app.use(express.json())
-
+app.use(express.static('public'))
 // rutas inciales
-app.get('/',(req,res)=>{
-    res.json({
-        message:"bievenido a mi backend de node js"
-    })
-})
 app.use('/api',routerNotas)
 
 // luego de perdir todas las paginas
