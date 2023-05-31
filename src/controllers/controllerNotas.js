@@ -21,9 +21,7 @@ export const VerOneNota=async(req,res)=>{
         if (rows.length<=0) return res.status(404).json({
             message:'nota no encontrada'
         })
-        res.json(
-            rows
-        )
+        res.json(rows)
         
     } catch (error) {
         return res.status(500).json({
@@ -33,10 +31,16 @@ export const VerOneNota=async(req,res)=>{
 }
 
 
-export const postNotas=(req,res)=>{
-    res.json({
-        message:"mandando datos del servidor"
-    })
+export const postNotas= async(req,res)=>{
+    const {titulo,descripcion,fecha_creacion,estado}=req.body
+    try {
+     const [rows]=await pool.query('INSERT INTO notas (titulo,descripcion,fecha_creacion,estado) VALUES (?,?,?,?)',[titulo,descripcion,fecha_creacion,estado])   
+        res.json(rows)
+    } catch (error) {
+        return res.status(500).json({
+            message:"algio salio mal"
+        })
+    }
 }
 
 export const patchNotas=(req,res)=>{
