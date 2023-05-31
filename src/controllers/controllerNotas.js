@@ -62,7 +62,7 @@ export const patchNotas=async(req,res)=>{
 
 }
 
-export const deleteNotas= async()=>{
+export const deleteNotas= async(req,res)=>{
     const id=req.params.id
     try {
         const [rows]=await pool.query('DELETE FROM notas WHERE id_notas= ?',[id])
