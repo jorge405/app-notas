@@ -1,5 +1,21 @@
 body{
-    background: #202020;
-    color: white;
+    background: white;
+    color: #202020;
 }
 
+.titulos{
+    color: #202020;
+}
+
+.encabezado{
+    margin-top: 5rem;
+}
+
+.texto{
+    text-transform: capitalize;
+}
+
+.images{
+    max-width: 70rem;
+    max-height: 300px;
+}
